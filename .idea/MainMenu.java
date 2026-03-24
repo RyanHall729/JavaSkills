@@ -1,4 +1,4 @@
-
+import Java.util.Scanner;
 
 
 public class MainMenu
@@ -12,6 +12,6 @@ public class MainMenu
         System.out.println("What do you want to do?");
         System.out.println("Add or Delete Student");
         System.out.println("Change Student Grades/Schedules");
-        System.out.println("Sort Students")
+        System.out.println("Sort Students");
     }
 }
