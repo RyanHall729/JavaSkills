@@ -12,15 +12,15 @@ public class Main
         int number = 1 + (int)(100 * Math.random());
 
         // Number of attempts
-        int K = 7;
+        int attempts = 7;
 
-        int i = 0;
+        int counter = 0;
 
-        System.out.println("Guess a Number between 1 & 100, you have " + K + " attempts to guess correctly");
+        System.out.println("Guess a Number between 1 & 100, you have " + attempts + " attempts to guess correctly");
 
-        while (i < K)
+        while (counter < attempts)
         {
-            i++;
+            counter++;
 
             int guess = sc.nextInt();
 

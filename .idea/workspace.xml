@@ -4,16 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74c7c67f-ed1c-4bd5-881c-4f96379c34cb" name="Changes" comment="Behold, Stuff!">
-      <change beforePath="$PROJECT_DIR$/.idea/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="74c7c67f-ed1c-4bd5-881c-4f96379c34cb" name="Changes" comment="Number Guessing Game" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -87,7 +88,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774393511529</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Number Guessing Game">
+      <option name="closed" value="true" />
+      <created>1774653919229</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774653919229</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Behold, Stuff!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Behold, Stuff!" />
+    <MESSAGE value="Number Guessing Game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Number Guessing Game" />
   </component>
 </project>
