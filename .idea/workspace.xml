@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74c7c67f-ed1c-4bd5-881c-4f96379c34cb" name="Changes" comment="Behold, Stuff!">
-      <change beforePath="$PROJECT_DIR$/.idea/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MainMenu.java" afterDir="false" />
+    <list default="true" id="74c7c67f-ed1c-4bd5-881c-4f96379c34cb" name="Changes" comment="New import">
+      <change beforePath="$PROJECT_DIR$/.idea/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +29,10 @@
     &quot;accountId&quot;: &quot;9457e925-587a-48f9-915d-8ae0f7ec8ea0&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -40,6 +45,7 @@
   "keyToString": {
     "Application.Main Config.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -75,7 +81,6 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
@@ -88,7 +93,9 @@
       <updated>1773443593235</updated>
       <workItem from="1773443607358" duration="522000" />
       <workItem from="1774389992193" duration="16000" />
-      <workItem from="1774391101704" duration="4506000" />
+      <workItem from="1774391101704" duration="4566000" />
+      <workItem from="1775599569285" duration="3000" />
+      <workItem from="1777070134795" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary="Behold, Stuff!">
       <option name="closed" value="true" />
@@ -98,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774393511529</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="New import">
+      <option name="closed" value="true" />
+      <created>1774395884037</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774395884037</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +121,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Behold, Stuff!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Behold, Stuff!" />
+    <MESSAGE value="New import" />
+    <option name="LAST_COMMIT_MESSAGE" value="New import" />
   </component>
 </project>
