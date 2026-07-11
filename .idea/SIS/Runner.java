@@ -2,6 +2,8 @@ package sis;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import sis.Student;
+import sis.studentNames;
 
 public class Runner {
     static ArrayList<Student> masterList = new ArrayList<Student>();
@@ -116,29 +118,45 @@ public class Runner {
             menu();
         }
     }
-    public static void addStudent()
-    {
+    public static void addStudent() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Add First Name");
-        String firstName = sc.nextLine();
-        System.out.println("Add Last Name");
-        String lastName = sc.nextLine();
-        System.out.println("Add Period 1 & Grade");
-        String period1Raw = sc.nextLine();
-        String[] period1Dual = period1Raw.split(" ");
-        String classOne = period1Dual[0];
-        String gradeOne = period1Dual[1];
-        System.out.println("Add Period 2 & Grade");
-        String period2Raw = sc.nextLine();
-        String[] period2Dual = period2Raw.split(" ");
-        String classTwo = period2Dual[0];
-        String gradeTwo = period2Dual[1];
-        System.out.println("Add Period 3 & Grade");
-        String period3Raw = sc.nextLine();
-        String[] period3Dual = period3Raw.split(" ");
-        String classThree = period3Dual[0];
-        String gradeThree = period3Dual[1];
-        Student st = new Student(firstName, lastName, classOne, gradeOne, classTwo, gradeTwo, classThree, gradeThree);
+        System.out.println("Enter: first last p1 g1 p2 g2 p3 g3 assign");
+        System.out.println("Or type FILE to import all students from StudentInfo.txt");
+
+        String input = sc.nextLine().trim();
+
+        // ---------------------------------------------------------
+        // OPTION 1 — LOAD ALL STUDENTS FROM FILE
+        // ---------------------------------------------------------
+        if (input.equalsIgnoreCase("FILE")) {
+            studentNames.loadStudentsFromFile();
+            menu();
+            return;
+        }
+
+        // ---------------------------------------------------------
+        // OPTION 2 — ADD A SINGLE STUDENT FROM MANUAL INPUT
+        // ---------------------------------------------------------
+        String[] parts = input.split("\\s+");
+
+        String firstName = parts[0];
+        String lastName = parts[1];
+        String classOne = parts[2];
+        String gradeOne = parts[3];
+        String classTwo = parts[4];
+        String gradeTwo = parts[5];
+        String classThree = parts[6];
+        String gradeThree = parts[7];
+        int assign = Integer.parseInt(parts[8]);
+
+        Student st = new Student(
+                firstName, lastName,
+                classOne, gradeOne,
+                classTwo, gradeTwo,
+                classThree, gradeThree,
+                assign
+        );
+
         masterList.add(st);
         menu();
     }
@@ -147,20 +165,19 @@ public class Runner {
         // Display all last names
         for (int i = 0; i < masterList.size(); i++)
         {
-            System.out.println(masterList.get(i).getLastName());
+            System.out.println(masterList.get(i).getAssign());
         }
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Delete from List");
-        System.out.println("Last Name");
-        String lastName = sc.nextLine();
+        System.out.println("Value");
+        int assign = sc.nextInt();
 
         // Search manually
         int indexNumber = -1;
-        for(int i = 0; i < masterList.size(); i++)
-        {
-            if(masterList.get(i).getLastName().equalsIgnoreCase(lastName))
-            {
+
+        for (int i = 0; i < masterList.size(); i++) {
+            if (masterList.get(i).getAssign() == assign) {
                 indexNumber = i;
                 break;
             }
@@ -177,9 +194,180 @@ public class Runner {
         System.out.println("Student Removed.");
         menu();
     }
-    public static void changeGrade() {}
-    public static void switchClass() {}
-    public static void sortLastName() {}
-    public static void sortGPA() {}
-    public static void sortPeriod() {}
+    public static void changeGrade() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the student's assign number:");
+        int assign = sc.nextInt();
+        sc.nextLine(); // clear buffer
+
+        Student st = null;
+
+        for (Student s : masterList) {
+            if (s.getAssign() == assign) {
+                st = s;
+                break;
+            }
+        }
+
+        if (st == null) {
+            System.out.println("Student not found.");
+            menu();
+            return;
+        }
+
+        System.out.println("Which period grade would you like to change?");
+        System.out.println("1 = First Period");
+        System.out.println("2 = Second Period");
+        System.out.println("3 = Third Period");
+
+        int option = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("Enter new grade:");
+        String newGrade = sc.nextLine().trim();
+
+        switch(option) {
+            case 1: st.setFirstPeriodGrade(newGrade); break;
+            case 2: st.setSecondPeriodGrade(newGrade); break;
+            case 3: st.setThirdPeriodGrade(newGrade); break;
+            default:
+                System.out.println("Invalid selection.");
+                menu();
+                return;
+        }
+
+        System.out.println("Grade updated.");
+        menu();
+    }
+    public static void switchClass() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the student's assign number:");
+        int assign = sc.nextInt();
+        sc.nextLine();
+
+        Student st = null;
+
+        for (Student s : masterList) {
+            if (s.getAssign() == assign) {
+                st = s;
+                break;
+            }
+        }
+
+        if (st == null) {
+            System.out.println("Student not found.");
+            menu();
+            return;
+        }
+
+        System.out.println("Which class do you want to change?");
+        System.out.println("1 = First Period");
+        System.out.println("2 = Second Period");
+        System.out.println("3 = Third Period");
+
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("Enter NEW class name:");
+        String newClass = sc.nextLine().trim();
+
+        switch(choice) {
+            case 1: st.setFirstPeriod(newClass); break;
+            case 2: st.setSecondPeriod(newClass); break;
+            case 3: st.setThirdPeriod(newClass); break;
+            default:
+                System.out.println("Invalid selection.");
+                menu();
+                return;
+        }
+
+        System.out.println("Class updated.");
+        menu();
+    }
+    public static void sortLastName() {
+        masterList.sort((a, b) -> a.getLastName().compareToIgnoreCase(b.getLastName()));
+
+        System.out.println("Students sorted by last name:\n");
+        for (Student st : masterList) {
+            System.out.println(st.getLastName() + ", " + st.getFirstName() +
+                    "  (Assign: " + st.getAssign() + ")");
+        }
+
+        menu();
+    }
+    private static double letterToValue(String g) {
+        g = g.toUpperCase();
+        switch(g) {
+            case "A": return 4.0;
+            case "B": return 3.0;
+            case "C": return 2.0;
+            case "D": return 1.0;
+            case "F": return 0.0;
+            default: return 0.0;
+        }
+    }
+
+    public static void sortGPA() {
+        masterList.sort((a, b) -> {
+            double gpaA =
+                    (letterToValue(a.getFirstPeriodGrade()) +
+                            letterToValue(a.getSecondPeriodGrade()) +
+                            letterToValue(a.getThirdPeriodGrade())) / 3.0;
+
+            double gpaB =
+                    (letterToValue(b.getFirstPeriodGrade()) +
+                            letterToValue(b.getSecondPeriodGrade()) +
+                            letterToValue(b.getThirdPeriodGrade())) / 3.0;
+
+            return Double.compare(gpaB, gpaA); // descending
+        });
+
+        System.out.println("Students sorted by GPA:\n");
+        for (Student st : masterList) {
+            double gpa =
+                    (letterToValue(st.getFirstPeriodGrade()) +
+                            letterToValue(st.getSecondPeriodGrade()) +
+                            letterToValue(st.getThirdPeriodGrade())) / 3.0;
+
+            System.out.printf("%s %s  GPA: %.2f  (Assign: %d)\n",
+                    st.getFirstName(), st.getLastName(), gpa, st.getAssign());
+        }
+
+        menu();
+    }
+    public static void sortPeriod() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Sort by which period?");
+        System.out.println("1 = First Period");
+        System.out.println("2 = Second Period");
+        System.out.println("3 = Third Period");
+
+        int option = sc.nextInt();
+
+        switch(option) {
+            case 1:
+                masterList.sort((a, b) -> a.getFirstPeriod().compareToIgnoreCase(b.getFirstPeriod()));
+                break;
+            case 2:
+                masterList.sort((a, b) -> a.getSecondPeriod().compareToIgnoreCase(b.getSecondPeriod()));
+                break;
+            case 3:
+                masterList.sort((a, b) -> a.getThirdPeriod().compareToIgnoreCase(b.getThirdPeriod()));
+                break;
+            default:
+                System.out.println("Invalid period.");
+                menu();
+                return;
+        }
+
+        System.out.println("Sorted student list:\n");
+        for (Student st : masterList) {
+            System.out.println(st.getAssign() + " - " + st.getLastName() + " " + st.getFirstName());
+        }
+
+        menu();
+    }
 }

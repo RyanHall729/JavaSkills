@@ -9,6 +9,7 @@ public class Student {
     String secondPeriodGrade;
     String thirdPeriod;
     String thirdPeriodGrade;
+    int assign;
 
     public Student(String firstName,
                    String lastName,
@@ -17,7 +18,8 @@ public class Student {
                    String secondPeriod,
                    String secondPeriodGrade,
                    String thirdPeriod,
-                   String thirdPeriodGrade) {
+                   String thirdPeriodGrade,
+                   int assign) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.firstPeriod = firstPeriod;
@@ -26,6 +28,7 @@ public class Student {
         this.secondPeriodGrade = secondPeriodGrade;
         this.thirdPeriod = thirdPeriod;
         this.thirdPeriodGrade = thirdPeriodGrade;
+        this.assign = assign;
     }
 
     public String getFirstName() {
@@ -91,6 +94,14 @@ public class Student {
     public void setThirdPeriodGrade(String thirdPeriodGrade) {
         this.thirdPeriodGrade = thirdPeriodGrade;
     }
+    public int getAssign() {
+        return assign;
+    }
+
+    public void setAssign(int assign) {
+        this.assign = assign;
+    }
+
 
 
 }
