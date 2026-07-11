@@ -5,4 +5,9 @@ import java.util.ArrayList;
 public class Analyzer
 {
     static ArrayList<Integer> grade = new ArrayList<>();
+    public static void main(String[] args) {analyze();}
+    public static void analyze()
+    {
+
+    }
 }
