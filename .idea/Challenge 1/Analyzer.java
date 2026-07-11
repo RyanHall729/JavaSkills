@@ -1,6 +1,7 @@
 package analyzer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Analyzer
 {
@@ -18,9 +19,17 @@ public class Analyzer
         return grade;
     }
 
-    public static void main(String[] args) {analyze();}
-    public static void analyze()
+    public static void main(String[] args)
     {
+        double sum = 0;
+        for (int num : grade)
+        {
+            sum += num;
+        }
+        double average = sum / grade.size();
+
+        int max = Collections.max(grade);
+        int min = Collections.min(grade);
 
     }
 }
